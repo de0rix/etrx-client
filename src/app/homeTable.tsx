@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Entry, RequestProps, Table, TableEntry, TableProps } from "./components/table";
 import { getContests, GetContestsArgs } from "./services/contests";
-import TableStyles from './components/network-table.module.css';
+import TableStyles from './components/table.module.css';
 
 export default function HomeTable()
 {
@@ -34,11 +34,13 @@ export default function HomeTable()
             return {entries: [], props: props};
         }
 
-        const data = await response.json();
-        const rawEntries = Array.from(data.contests);
-
         // Set status code to track request state
         setStatusCode(response.status);
+        if(response.status != 200)
+            return {entries: [], props: props};
+        
+        const data = await response.json();
+        const rawEntries = Array.from(data.contests);
 
         // Set new page that we got from response
         if(data['pageCount'] && typeof(data['pageCount']) == 'number')
@@ -57,7 +59,27 @@ export default function HomeTable()
             entry.cells = Array(len);
             Object.keys(raw).forEach((key, i) =>
             {
-                entry.cells.push(<td key={i} className={TableStyles.cell}>{raw[key]}</td>);
+                if(key == 'startTime')
+                    entry.cells.push(
+                        <td key={i} className={TableStyles.cell}>
+                            {(new Date(raw[key] as number * 1000)).toLocaleString('ru', 
+                                {
+                                    minute: '2-digit',
+                                    hour: '2-digit',
+                                    day: 'numeric',
+                                    month: 'numeric',
+                                    year: 'numeric',
+                                    weekday: 'long'
+                                }
+                            )}
+                        </td>
+                    );
+                else
+                    entry.cells.push(
+                        <td key={i} className={TableStyles.cell}>
+                            {raw[key]}
+                        </td>
+                    );
             });
 
             const tEntry = new TableEntry;
@@ -83,7 +105,7 @@ export default function HomeTable()
             <>
             {statusCode != 200 && statusCode != 0 && 
                 <h1 className="w-full text-center text-2xl font-bold">
-                    Could not load table data. Status code: {statusCode}
+                    Не получилось загрузить данные таблицы. Статус код: {statusCode}
                 </h1>
             }
             <div className={statusCode == 200 ? 'visible' : 'invisible'}>

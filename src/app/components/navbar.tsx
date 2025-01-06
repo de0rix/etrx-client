@@ -20,11 +20,15 @@ export default function Header()
                 </button>
                 <Dropdown header="Контесты">
                     <button onClick={() => router.push('/contests/view')} className={DdStyles.dropdown_elem}>Просмотреть все</button>
-                    <button className={DdStyles.dropdown_elem}><div className={MiscStyles.add_ico}></div> Добавить</button>
+                    <button onClick={() => {router.push('/contests/update')}} className={DdStyles.dropdown_elem}>
+                        <div className={MiscStyles.add_ico}></div> Обновить
+                    </button>
                 </Dropdown>
                 <Dropdown header="Ученики">
                     <button onClick={() => router.push('/users/view')} className={DdStyles.dropdown_elem}>Просмотреть всех</button>
-                    <button className={DdStyles.dropdown_elem}><div className={MiscStyles.add_ico}></div> Добавить</button>
+                    <button onClick={() => {router.push('/users/update')}} className={DdStyles.dropdown_elem}>
+                        <div className={MiscStyles.add_ico}></div> Обновить
+                    </button>
                 </Dropdown>
                 <button onClick={() => router.push('/problems/view')} className={DdStyles.header_elem}>Задачи</button>
                 <button onClick={() => router.push('/about')} className={DdStyles.header_elem}>О сайте</button>

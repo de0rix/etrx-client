@@ -1,8 +1,9 @@
 'use client';
+
 import { Entry, RequestProps, Table, TableEntry, TableProps } from "@/app/components/table";
-import { getContestSubmissions, GetContestSubmissionsArgs, getContestSubmissionsWithUpdate } from "@/app/services/contests";
+import { getContestSubmissions, GetContestSubmissionsArgs, updateContestSubmissions } from "@/app/services/contests";
 import { useParams } from "next/navigation";
-import TableStyles from '../../components/network-table.module.css';
+import TableStyles from '../../components/table.module.css';
 import { useMemo, useRef, useState } from "react";
 import GizmoSpinner from "@/app/components/gizmo-spinner";
 
@@ -14,7 +15,7 @@ export default function Page()
     // and possible error messages
     const [statusCode, setStatusCode] = useState(0);
     // Used to determine, if we need to POST an update to the server
-    const firstUpdate = useRef(true);
+    const [firstUpdate, setFirstUpdate] = useState(true);
     const tableProps = new TableProps(
         ['Хендл', 'Имя', 'Фамилия', 'Город', 'Организация', 'Класс', 'Всего решено', 'Тип участия']
     );
@@ -36,10 +37,10 @@ export default function Page()
         let response: Response;
         try
         {
-            if(firstUpdate.current)
+            if(firstUpdate)
             {
-                response = await getContestSubmissionsWithUpdate(args);
-                firstUpdate.current = false;
+                updateContestSubmissions(args).then(() => setFirstUpdate(false));
+                response = await getContestSubmissions(args);
             }
             else
             {
@@ -52,23 +53,34 @@ export default function Page()
             return {entries: [], props: props};
         }
 
-        const data = await response.json();
-        const rawEntries = Array.from(data['submissions']);
-
         // Set status code to track request state
         setStatusCode(response.status);
+        if(response.status != 200)
+            return {entries: [], props: props};
+        
+        const data = await response.json();
+        let rawEntries = Array.from(data.submissions);
+        // Remove array key
+        rawEntries.splice(rawEntries.findIndex((fieldName) => fieldName == 'tries'), 1);
+
+        // Create a list of problem indexes
+        const problemIndexes: string[] = []
+        data['problemIndexes'].forEach((elem: string) => {
+            problemIndexes.push(elem);
+        });
 
         // Set field keys that we got
         if(rawEntries[0])
+        {
             props.fieldKeys = Object.keys(rawEntries[0]);
+            // Remove array key
+            props.fieldKeys.splice(props.fieldKeys.findIndex((fieldName) => fieldName == 'tries'), 1);
+        }
+            
 
         // Append problem indexes into table names
-        const newIndexes: string[] = []
-        data['problemIndexes'].forEach((elem: string) => {
-            newIndexes.push(elem);
-        });
         tableProps.columnNames = 
-            ['Хендл', 'Имя', 'Фамилия', 'Город', 'Организация', 'Класс', 'Всего решено', 'Тип участия'].concat(newIndexes);
+            ['Хендл', 'Имя', 'Фамилия', 'Город', 'Организация', 'Класс', 'Всего решено', 'Тип участия'].concat(problemIndexes);
         
         // Create viewable content from raw data
         const entries: TableEntry[] = [];
@@ -109,15 +121,17 @@ export default function Page()
             </div>          
             </>
         )
-    }, [])
+        // Update the table after POST runs
+    }, [firstUpdate])
 
     return(
         <>
         <h1 className=' text-3xl w-full text-center font-bold mb-5'>Таблица контеста #{contestId}</h1>
-        {statusCode == 0 && <div className='mb-[150px]'><GizmoSpinner></GizmoSpinner></div>}
+        {statusCode == 0 && <div className='mb-[150px]'><GizmoSpinner title="Загрузка кэшированных данных..."></GizmoSpinner></div>}
+        {statusCode != 0 && firstUpdate && <div className='mb-[150px]'><GizmoSpinner timeout={40000} title="Обновление данных..."></GizmoSpinner></div>}
         {statusCode != 200 && statusCode != 0 && 
             <h1 className="w-full text-center text-2xl font-bold">
-                Could not load table data. Status code: {statusCode}
+                Не получилось загрузить данные таблицы. Статус код: {statusCode}
             </h1>
         }
         <div className={statusCode == 200 ? 'visible' : 'invisible'}>

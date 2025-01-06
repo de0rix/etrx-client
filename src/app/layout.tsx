@@ -1,5 +1,5 @@
 import { useId } from "react";
-import Header from "./components/header";
+import Navbar from "./components/navbar";
 import { Sidebar } from "./components/sidebar";
 import "./globals.css";
 
@@ -11,7 +11,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
             <title>ETRX</title>
             <body>
                 <Sidebar sidebarId={sidebarId}/>
-                <Header/>
+                <Navbar/>
                 {children}
             </body>
         </html>

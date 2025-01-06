@@ -9,7 +9,7 @@
 
 .table
 {
-    width: 80vw;
+    width: fit-content;
 }
 
 .th
@@ -69,4 +69,9 @@
 .tr_link
 {
     cursor: pointer;
+}
+
+.tr_link:hover
+{
+    background-color: #80808040;
 }

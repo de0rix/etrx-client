@@ -3,11 +3,8 @@
 // request of sortable tables
 export default class Sortable
 {
-    constructor(sortField: string | null = null, sortOrder: boolean | null = false)
-    {
-        this.sortField = sortField;
-        this.sortOrder = sortOrder;
-    }
-    sortField: string | null;
-    sortOrder: boolean | null;
+    constructor(
+        public sortField: string | null = null, 
+        public sortOrder: boolean | null = false
+    ) {}
 }

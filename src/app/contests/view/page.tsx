@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useId, useMemo, useState } from "react";
 import { GetContestsArgs, getContests } from "../../services/contests";
-import TableStyles from '../../components/network-table.module.css';
+import TableStyles from '../../components/table.module.css';
 import { Entry, TableEntry, Table, TableProps, RequestProps } from "@/app/components/table";
 import GizmoSpinner from "@/app/components/gizmo-spinner";
 
@@ -45,6 +45,11 @@ export default function Page()
             return {entries: [], props: props};
         }
 
+        // Set status code to track request state
+        setStatusCode(response.status);
+        if(response.status != 200)
+            return {entries: [], props: props};
+        
         const data = await response.json();
         const rawEntries = Array.from(data.contests);
 
@@ -68,12 +73,32 @@ export default function Page()
             entry.cells = Array(len);
             Object.keys(raw).forEach((key, i) =>
             {
-                entry.cells.push(<td key={i} className={TableStyles.cell}>{raw[key]}</td>);
+                if(key == 'startTime')
+                    entry.cells.push(
+                        <td key={i} className={TableStyles.cell}>
+                            {(new Date(raw[key] as number * 1000)).toLocaleString('ru', 
+                                {
+                                    minute: '2-digit',
+                                    hour: '2-digit',
+                                    day: 'numeric',
+                                    month: 'numeric',
+                                    year: 'numeric',
+                                    weekday: 'long'
+                                }
+                            )}
+                        </td>
+                    );
+                else
+                    entry.cells.push(
+                        <td key={i} className={TableStyles.cell}>
+                            {raw[key]}
+                        </td>
+                    );
             });
 
             const tEntry = new TableEntry;
             tEntry.row = <tr key={i} className={TableStyles.tr_link}
-            onClick={() => window.open(`/etrx2/contests/${raw['contestId']}`)}>
+            onClick={() => window.open(`/contests/${raw['contestId']}`)}>
                 {entry.cells}
             </tr>;
             entries.push(tEntry);
@@ -124,7 +149,7 @@ export default function Page()
         {statusCode == 0 && <div className='mb-[150px]'><GizmoSpinner></GizmoSpinner></div>}
         {statusCode != 200 && statusCode != 0 && 
             <h1 className="w-full text-center text-2xl font-bold">
-                Could not load table data. Status code: {statusCode}
+                Не получилось загрузить данные таблицы. Статус код: {statusCode}
             </h1>
         }
         <div className={statusCode == 200 ? 'visible' : 'invisible'}>

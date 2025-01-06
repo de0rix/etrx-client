@@ -1,10 +1,9 @@
 "use client";
+
 import { getUsers, GetUsersArgs } from "@/app/services/users";
-// import { LinkParamType, NetTable, NetTableParams, TableProps } from "@/app/components/network-table";
-// import { Suspense } from "react";
 import { Entry, RequestProps, Table, TableEntry, TableProps } from "@/app/components/table";
 import { useMemo, useState } from "react";
-import TableStyles from '../../components/network-table.module.css';
+import TableStyles from '../../components/table.module.css';
 import GizmoSpinner from "@/app/components/gizmo-spinner";
 
 export default function Page()
@@ -14,7 +13,7 @@ export default function Page()
     {
         // Prepare request parameters
         props.sortField = props.sortField ? props.sortField : 'firstName';
-        props.sortOrder = props.sortOrder != null ? props.sortOrder : true;
+        props.sortOrder = props.sortOrder ? props.sortOrder : true;
         const args = new GetUsersArgs(
             null,
             null,
@@ -32,11 +31,14 @@ export default function Page()
             setStatusCode(-1);
             return {entries: [], props: props};
         }
-        const data = await response.json();
-        const rawEntries = Array.from(data.users);
 
         // Set status code to track request state
         setStatusCode(response.status);
+        if(response.status != 200)
+            return {entries: [], props: props};
+        
+        const data = await response.json();
+        const rawEntries = Array.from(data.users);
 
         // Set field keys that we got
         if(rawEntries[0])
@@ -85,7 +87,7 @@ export default function Page()
         {statusCode == 0 && <div className='mb-[150px]'><GizmoSpinner></GizmoSpinner></div>}
         {statusCode != 200 && statusCode != 0 && 
             <h1 className="w-full text-center text-2xl font-bold">
-                Could not load table data. Status code: {statusCode}
+                Не получилось загрузить данные таблицы. Статус код: {statusCode}
             </h1>
         }
         <div className={statusCode == 200 ? 'visible' : 'invisible'}>

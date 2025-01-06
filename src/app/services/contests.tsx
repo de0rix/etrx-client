@@ -3,7 +3,15 @@
 import Pageable from "../models/Pageable";
 import Sortable from "../models/Sortable";
 
-// TODO: POST to update backend contests table
+export async function updateContests()
+{
+    return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Codeforces/Contests/PostAndUpdateContestsFromCodeforces?`,
+        {
+            redirect: 'error',   
+            method: 'POST',  
+        }
+    ); 
+}
 
 export async function getContestsPageCount (
     recordsPerPage: number
@@ -74,7 +82,7 @@ export async function getContestSubmissions(args: GetContestSubmissionsArgs)
         }); 
 }
 
-export async function getContestSubmissionsWithUpdate(args: GetContestSubmissionsArgs)
+export async function updateContestSubmissions(args: GetContestSubmissionsArgs)
 {
     await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Codeforces/Submissions/PostAndUpdateSubmissionsFromCodeforcesByContestId?` +
         `contestId=${args.contestId}`,
@@ -82,12 +90,5 @@ export async function getContestSubmissionsWithUpdate(args: GetContestSubmission
             redirect: 'error',   
             method: 'POST',  
         }); 
-
-    return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Submissions/GetSubmissionsByContestIdWithSort?` +
-        `contestId=${args.contestId}` +
-        `${args.sortField != null? `&sortField=${args.sortField}` : ''}` +
-        `${args.sortOrder != null? `&sortOrder=${args.sortOrder}` : ''}`,
-        {
-            redirect: 'error',     
-        }); 
+    return;
 }

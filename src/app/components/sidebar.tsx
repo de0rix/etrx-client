@@ -74,17 +74,17 @@ export function Sidebar ({sidebarId}: SidebarProps)
                     <button onClick={() => {toggle(); router.push('/contests/view')}} className={Styles.option}>
                         Просмотреть все
                     </button>
-                    <button onClick={() => {toggle(); router.push('/contests/add')}} className={Styles.option}>
+                    <button onClick={() => {toggle(); router.push('/contests/update')}} className={Styles.option}>
                         <span className={`${MiscStyles.add_ico} flex items-center justify-center`}></span>
-                        Добавить
+                        Обновить
                     </button>
                     <div className={Styles.category}>Пользователи</div>
                     <button onClick={() => {toggle(); router.push('/users/view')}} className={Styles.option}>
                         Просмотреть всех
                     </button>
-                    <button onClick={() => {toggle(); router.push('/users/add')}} className={Styles.option}>
+                    <button onClick={() => {toggle(); router.push('/users/update')}} className={Styles.option}>
                         <span className={`${MiscStyles.add_ico} flex items-center justify-center`}></span>
-                        Добавить
+                        Обновить
                     </button>
                 </div>
                 <button onClick={() => {toggle(); router.push('/about')}} className={Styles.option}>

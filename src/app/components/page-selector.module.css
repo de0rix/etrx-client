@@ -68,7 +68,6 @@
 
 .prev_button::after
 {
-    /* TODO: Use icons and not symbols */
     content: '<';
 }
 

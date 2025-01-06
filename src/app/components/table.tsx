@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Styles from './network-table.module.css'
+import Styles from './table.module.css'
 import PageSelector from './page-selector';
 
 export class Entry
@@ -31,7 +31,7 @@ export class RequestProps
 
 export function Table(
     {
-        getData, 
+        getData,
         props
     }: 
     {
@@ -90,49 +90,54 @@ export function Table(
         } 
     }
     
-    return (
-        <>
-        <div className={Styles.container}>
-            {!props.hidePageSelectors && entries.length > 0 && rProps.page && rProps.maxPage && 
-                <PageSelector page={rProps.page} maxPage={rProps.maxPage} pageCallback={pageCallback}/>
-            }
-            <table className={Styles.table}>
-                <thead>
-                    <tr key={0}>
-                    {props.columnNames.map((name, index) => {    
-                        if (rProps.sortField != rProps.fieldKeys.at(index))
-                            return(
-                                <th key={index} className={Styles.th}
-                                        onClick={() => changeParams(rProps.fieldKeys.at(index))}>
-                                    {name}
-                                </th>
-                            )
+    if(entries.length > 0)
+        return (
+            <>
+            <div className={Styles.container}>
+                {!props.hidePageSelectors && entries.length > 0 && rProps.page && rProps.maxPage && 
+                    <PageSelector page={rProps.page} maxPage={rProps.maxPage} pageCallback={pageCallback}/>
+                }
+                <table className={Styles.table}>
+                    <thead>
+                        <tr key={0}>
+                        {props.columnNames.map((name, index) => {    
+                            if (rProps.sortField != rProps.fieldKeys.at(index))
+                                return(
+                                    <th key={index} className={Styles.th}
+                                            onClick={() => changeParams(rProps.fieldKeys.at(index))}>
+                                        {name}
+                                    </th>
+                                )
 
-                        if(rProps.sortOrder) 
-                            return(
-                                <th key={index} className={[Styles.th, Styles.cell_arrow_up].join(' ')}
-                                        onClick={() => changeParams(rProps.fieldKeys.at(index))}>
-                                    {name}
-                                </th>
-                            )
-                        else
-                            return(
-                                <th key={index} className={[Styles.th, Styles.cell_arrow_down].join(' ')}
-                                        onClick={() => changeParams(rProps.fieldKeys.at(index))}>
-                                    {name}
-                                </th>
-                            )
-                        })}
-                    </tr>
-                </thead>
-                <tbody>
-                    {entries.map(entry => entry.row)}
-                </tbody>
-            </table>
-            {!props.hidePageSelectors != false && entries.length > 0 && rProps.page && rProps.maxPage && 
-                <PageSelector page={rProps.page} maxPage={rProps.maxPage} pageCallback={pageCallback}/>
-            }
-        </div>
-        </>
-    )
+                            if(rProps.sortOrder) 
+                                return(
+                                    <th key={index} className={[Styles.th, Styles.cell_arrow_up].join(' ')}
+                                            onClick={() => changeParams(rProps.fieldKeys.at(index))}>
+                                        {name}
+                                    </th>
+                                )
+                            else
+                                return(
+                                    <th key={index} className={[Styles.th, Styles.cell_arrow_down].join(' ')}
+                                            onClick={() => changeParams(rProps.fieldKeys.at(index))}>
+                                        {name}
+                                    </th>
+                                )
+                            })}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {entries.map(entry => entry.row)}
+                    </tbody>
+                </table>
+                {!props.hidePageSelectors != false && entries.length > 0 && rProps.page && rProps.maxPage && 
+                    <PageSelector page={rProps.page} maxPage={rProps.maxPage} pageCallback={pageCallback}/>
+                }
+            </div>
+            </>
+        )
+    else
+        return (
+            <h1 className='mt-2 text-2xl w-full text-center'>Похоже, таблица пуста.</h1>
+        )
 }

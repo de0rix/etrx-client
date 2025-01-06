@@ -2,6 +2,16 @@
 
 import Pageable from "../models/Pageable";
 
+export async function updateUsers()
+{
+    return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Codeforces/Users/PostAndUpdateUsersFromDlCodeforces?`,
+        {
+            redirect: 'error',   
+            method: 'POST',  
+        }
+    );
+}
+
 // While it does not utilize any paging, should have params for it for the future...
 export class GetUsersArgs
 {

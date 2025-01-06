@@ -2,13 +2,20 @@
 import { useEffect, useState } from 'react'
 import Styles from './gizmo-spinner.module.css'
 
-export default function GizmoSpinner()
+type GizmoSpinnerProps = {
+    title?: string;
+    timeout?: number;
+}
+
+export default function GizmoSpinner({title = 'Загрузка...', timeout = 15000}: GizmoSpinnerProps)
 {   
-    const [loadingMsg, setLoadingMsg] = useState(<>Loading...</>);
-    const timeout = setTimeout(() => {setLoadingMsg(<>Loading takes too long!<br/>Check your connection.</>);}, 15000);
+    const [loadingMsg, setLoadingMsg] = useState(<>{title}</>);
+
+    timeout = timeout? timeout : 150000;
+    const whenTimeout = setTimeout(() => {setLoadingMsg(<>Загрузка занимает слишком много времени<br/>Проверьте подключение.</>);}, timeout);
     
     useEffect(() => {
-        return () => {clearTimeout(timeout)};
+        return () => {clearTimeout(whenTimeout)};
     }, [timeout]);
 
     return(
