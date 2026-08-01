@@ -5,7 +5,7 @@ import { ChangeDetail, UpdateData } from '@/app/models/Updates';
 export function ChangeList({ items } : { items: ChangeDetail[] }) {
     return (
         <div className="ml-8">
-            <ul className="w-[80%] list-disc">
+            <ul className="list-disc">
                 {items.map((item, itemIndex) => (
                     <li key={itemIndex}>
                         {item.type}

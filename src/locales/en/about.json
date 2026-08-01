@@ -5,7 +5,21 @@
     "author": "Author",
     "updates": [
       {
-        "date": "28.02.2026",
+        "date": "6.6.2026",
+        "author": "Александр",
+        "items":[
+          {
+            "type":"Fixed",
+            "details":[
+              "Due to changes to the Codeforces API (more details https://codeforces.com/blog/entry/153241), requests to their API have been redesigned",
+              "For regular contests, data is now available only about official participants without parameters, for unauthorized users",
+              "All information with additional parameters is available for gym, but only for authorized users (a token is required)"
+            ]
+          }
+        ]
+      },
+      {
+        "date": "28.2.2026",
         "author": "Александр",
         "items":[
           {
@@ -24,7 +38,7 @@
         ]
       },
       {
-        "date": "10.01.2026",
+        "date": "10.1.2026",
         "author": "Александр",
         "items":[
           {
@@ -60,7 +74,7 @@
         ]
       },
       {
-        "date": "08.12.2025",
+        "date": "8.12.2025",
         "author": "Даниил",
         "items": [
           {
