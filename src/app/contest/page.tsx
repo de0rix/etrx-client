@@ -137,12 +137,7 @@ function ContestClientPage() {
 
     const tableData: ContestForTable[] = contests.map(c => ({ ...c, id: c.contestId }));
 
-    const sourceOptions = Array.from(new Set([
-            'Codeforces',
-            'IOI',
-            ...(source ? [source] : []),
-            ...contests.map(contest => contest.source).filter(Boolean) as string[],
-        ]));
+    const sourceOptions = Array.from([ 'Codeforces', 'IOI' ]);
 
     if (!isClient) {
         return <GizmoSpinner />;
