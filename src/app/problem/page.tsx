@@ -26,6 +26,7 @@ function ProblemClientPage() {
   const [maxPage, setMaxPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
+  const [isFiltersCollapsed, setIsFiltersCollapsed] = useState(false);
 
   const { searchParams, setQueryParams } = useQueryState({
     page: 1,
@@ -197,21 +198,32 @@ function ProblemClientPage() {
     <>
       <div className="flex flex-col md:flex-row gap-8 items-start mt-6">
         
-        <FilterSidebar
-          totalBounds={totalBounds}
-          currentBounds={currentBounds}
-          initialFilters={filters}
-          onApply={(res) => {
-            setQueryParams({
-              ...res,
-              tags: res.tags.length > 0 ? res.tags.join(",") : undefined,
-              indexes: res.indexes.length > 0 ? res.indexes.join(",") : undefined,
-              divisions: res.divisions.length > 0 ? res.divisions.join(",") : undefined,
-              ranks: res.ranks.length > 0 ? res.ranks.join(",") : undefined,
-              page: 1,
-            });
-          }}
-        />
+        <div className={`filterSidebarShell ${isFiltersCollapsed ? "filterSidebarShellCollapsed" : ""}`}>
+          <FilterSidebar
+            totalBounds={totalBounds}
+            currentBounds={currentBounds}
+            initialFilters={filters}
+            onApply={(res) => {
+              setQueryParams({
+                ...res,
+                tags: res.tags.length > 0 ? res.tags.join(",") : undefined,
+                indexes: res.indexes.length > 0 ? res.indexes.join(",") : undefined,
+                divisions: res.divisions.length > 0 ? res.divisions.join(",") : undefined,
+                ranks: res.ranks.length > 0 ? res.ranks.join(",") : undefined,
+                page: 1,
+              });
+            }}
+          />
+          <button
+            type="button"
+            className="filterSidebarToggle"
+            aria-label={isFiltersCollapsed ? "Показать фильтры" : "Скрыть фильтры"}
+            aria-expanded={!isFiltersCollapsed}
+            onClick={() => setIsFiltersCollapsed((collapsed) => !collapsed)}
+          >
+            <span aria-hidden="true">{isFiltersCollapsed ? "›" : "‹"}</span>
+          </button>
+        </div>
 
         <div className="flex-1 w-full">
           <h1 className="text-3xl w-full text-center font-bold mb-6">

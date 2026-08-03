@@ -22,7 +22,7 @@ export default function Page() {
         setIsLoading(true);
         setError(null);
 
-        const args = new GetContestsArgs(1, 10, 'startTime', false, null, i18n.language);
+        const args = new GetContestsArgs(1, 10, 'startTime', false, null, null, i18n.language);
 
         try {
             const response = await getContests(args);
@@ -89,7 +89,7 @@ export default function Page() {
 
     return (
         <>
-            <h1 className="text-3xl w-full text-center font-bold mb-5">{t('home:lastContests')}</h1>
+            <h1 className="text-3xl w-full text-center font-bold my-5">{t('home:lastContests')}</h1>
             
             <Table
                 columns={columns}

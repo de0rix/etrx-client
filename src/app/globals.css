@@ -49,6 +49,75 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.filterSidebarShell {
+  position: relative;
+  width: 310px;
+  flex: 0 0 310px;
+  transition: width 0.35s ease, flex-basis 0.35s ease;
+}
+
+.filterSidebarShell > aside {
+  transition: transform 0.35s ease, opacity 0.25s ease;
+}
+
+.filterSidebarShellCollapsed {
+  width: 0;
+  flex-basis: 0;
+}
+
+.filterSidebarShellCollapsed > aside {
+  transform: translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.filterSidebarToggle {
+  position: absolute;
+  z-index: 30;
+  top: 18px;
+  right: -14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid var(--background-shade1);
+  border-radius: 50%;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: right 0.35s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.filterSidebarToggle:hover {
+  background: var(--main);
+  color: var(--main-white);
+}
+
+.filterSidebarToggle span {
+  transform: translateY(-1px);
+}
+
+.filterSidebarShellCollapsed .filterSidebarToggle {
+  right: -44px;
+}
+
+@media (max-width: 767px) {
+  .filterSidebarShell {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .filterSidebarShellCollapsed {
+    width: 0;
+    flex-basis: 0;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -159,7 +159,7 @@ function ProtocolClientPage() {
 
     return (
         <>
-            <h1 className='text-3xl w-full text-center font-bold mb-5'>{t('protocol:protocolTableTitle')}</h1>
+            <h1 className='text-3xl w-full text-center font-bold my-5'>{t('protocol:protocolTableTitle')}</h1>
             
             <div className='m-auto rounded-md h-fit px-4 py-2 w-fit bg-background-shade'>
                 <div className="text-center">{t("protocol:filtersTitle")}</div>

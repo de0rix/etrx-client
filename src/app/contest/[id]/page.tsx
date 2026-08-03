@@ -71,7 +71,7 @@ function ContestIdClientPage() {
             try {
                 const shouldUpdate = !contest.isContestLoaded || participantType !== 'CONTESTANT';
                 if (shouldUpdate && !updatePerformed.current) {
-                    await updateRanklistRows(contestId);
+                    await updateRanklistRows(contestId, contest.source);
                     updatePerformed.current = true;
                 }
 

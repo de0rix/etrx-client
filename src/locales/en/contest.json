@@ -4,7 +4,11 @@
   "filters": {
     "all": "All",
     "gymOnly": "Gym Only",
-    "contestsOnly": "Contests Only"
+    "contestsOnly": "Contests Only",
+    "source": "Contest source",
+    "allSources": "All sources",
+    "apply": "Apply",
+    "reset": "Reset"
   },
   "tableHeaders": {
     "id": "ID",

@@ -13,15 +13,18 @@ export class GetContestsArgs extends Pageable
         sortField: string | null = null,
         sortOrder: boolean | null = false,
         isGym: boolean | null = null,
+        source: string | null = null,
         lang: string | null = null
     ) 
     {
         super(page, pageSize, sortField, sortOrder);
         this.isGym = isGym;
+        this.source = source;
         this.lang = lang;
     }
 
     isGym: boolean | null;
+    source: string | null;
     lang: string | null;
 }
 
@@ -32,7 +35,8 @@ export async function getContests(
     return fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Contests?` +
         `page=${args.page}` + 
         `${args.pageSize != null? `&pageSize=${args.pageSize}` : '&pageSize=20'}` + 
-        `${args.isGym != null? `&gym=${args.isGym}` : ''}` + 
+        `${args.isGym != null? `&gym=${args.isGym}` : ''}` +
+        `${args.source != null? `&source=${encodeURIComponent(args.source)}` : ''}` +
         `${args.sortField != null? `&sortField=${args.sortField}` : ''}` + 
         `${args.sortOrder != null? `&sortOrder=${args.sortOrder}` : '&sortOrder=false'}` + 
         `${args.lang != null? `&lang=${args.lang}` : '&lang=ru'}`,

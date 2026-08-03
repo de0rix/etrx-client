@@ -6,6 +6,7 @@ export interface Contest {
     relativeTimeSeconds: number;
     isContestLoaded: boolean;
     gym: boolean;
+    source?: string;
 }
 
 export type ContestForTable = Contest & { id: number };

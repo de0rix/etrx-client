@@ -88,7 +88,7 @@ function UserClientPage() {
 
     return (
         <>
-            <h1 className='text-3xl w-full text-center font-bold mb-5'>{t('user:usersTableTitle')}</h1>
+            <h1 className='text-3xl w-full text-center font-bold my-5'>{t('user:usersTableTitle')}</h1>
             
             <Table
                 columns={columns}

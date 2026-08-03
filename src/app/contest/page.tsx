@@ -7,7 +7,7 @@ import { useQueryState } from "@/hooks/useQueryState";
 import { GetContestsArgs, getContests } from "@/app/services/contests";
 import { unixToFormattedDate } from "@/libs/date";
 import { Table } from "@/app/components/Table";
-import { RadioGroup, Option } from "@/app/components/contest-radiogroup";
+import ContestFilterSidebar from "@/app/components/contest-filter-sidebar";
 import GizmoSpinner from "@/app/components/gizmo-spinner";
 import { Column, SortOrder } from "@/app/models/TableTypes";
 import { Contest, ContestForTable } from "@/app/models/Contest";
@@ -26,6 +26,7 @@ function ContestClientPage() {
         sortField: DEFAULT_SORT_FIELD,
         sortOrder: DEFAULT_SORT_ORDER,
         gymFilter: DEFAULT_GYM_FILTER,
+        source: null,
     });
 
     const page = useMemo(() => Number(searchParams.get('page')) || DEFAULT_PAGE, [searchParams]);
@@ -35,11 +36,13 @@ function ContestClientPage() {
         const param = searchParams.get('gymFilter');
         return param !== null ? Number(param) : DEFAULT_GYM_FILTER;
     }, [searchParams]);
+    const source = useMemo(() => searchParams.get('source') || '', [searchParams]);
 
     const [contests, setContests] = useState<Contest[]>([]);
     const [maxPage, setMaxPage] = useState<number>(1);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<Error | null>(null);
+    const [isFiltersCollapsed, setIsFiltersCollapsed] = useState(false);
     
     const isMounted = useRef(true);
 
@@ -50,6 +53,7 @@ function ContestClientPage() {
             sortField,
             sortOrder === 'asc',
             gymFilter == 2 ? null : gymFilter == 1,
+            source || null,
             i18n.language
         );
 
@@ -71,7 +75,7 @@ function ContestClientPage() {
             if (!isMounted.current) return;
             setIsLoading(false);
         }
-    }, [page, sortField, sortOrder, gymFilter, i18n.language, t]);
+    }, [page, sortField, sortOrder, gymFilter, source, i18n.language, t]);
 
     useEffect(() => {
         isMounted.current = true;
@@ -93,13 +97,6 @@ function ContestClientPage() {
             sortField: effectiveSortField,
             sortOrder: newSortOrder,
             page: 1, 
-        });
-    };
-
-    const handleFilterChange = (newFilterValue: number) => {
-        setQueryParams({
-            gymFilter: newFilterValue,
-            page: 1,
         });
     };
 
@@ -140,29 +137,46 @@ function ContestClientPage() {
 
     const tableData: ContestForTable[] = contests.map(c => ({ ...c, id: c.contestId }));
 
-    const radioGroupOptions: Option[] = [
-        { label: t('contest:filters.all'), value: 2 },
-        { label: t('contest:filters.gymOnly'), value: 1 },
-        { label: t('contest:filters.contestsOnly'), value: 0 },
-    ];
+    const sourceOptions = Array.from(new Set([
+            'Codeforces',
+            'IOI',
+            ...(source ? [source] : []),
+            ...contests.map(contest => contest.source).filter(Boolean) as string[],
+        ]));
 
     if (!isClient) {
         return <GizmoSpinner />;
     }
 
     return (
-        <>
-            <h1 className='text-3xl w-full text-center font-bold mb-5'>{t('contest:contestsTableTitle')}</h1>
-            
-            <RadioGroup
-                title={t('contest:filtersTitle')}
-                options={radioGroupOptions}
-                name="gymFilter"
-                value={gymFilter}
-                onChange={handleFilterChange}
-            />
+        <div className="flex flex-col md:flex-row gap-8 items-start mt-6">
+            <div className={`filterSidebarShell ${isFiltersCollapsed ? "filterSidebarShellCollapsed" : ""}`}>
+                <ContestFilterSidebar
+                    initialGymFilter={gymFilter}
+                    initialSource={source}
+                    sourceOptions={sourceOptions}
+                    onApply={({ gymFilter: nextGymFilter, source: nextSource }) => {
+                        setQueryParams({
+                            gymFilter: nextGymFilter,
+                            source: nextSource || null,
+                            page: 1,
+                        });
+                    }}
+                />
+                <button
+                    type="button"
+                    className="filterSidebarToggle"
+                    aria-label={isFiltersCollapsed ? "Показать фильтры" : "Скрыть фильтры"}
+                    aria-expanded={!isFiltersCollapsed}
+                    onClick={() => setIsFiltersCollapsed((collapsed) => !collapsed)}
+                >
+                    <span aria-hidden="true">{isFiltersCollapsed ? "›" : "‹"}</span>
+                </button>
+            </div>
 
-            <Table
+            <div className="flex-1 w-full">
+                <h1 className='text-3xl w-full text-center font-bold mb-6'>{t('contest:contestsTableTitle')}</h1>
+                <Table
                 columns={columns}
                 data={tableData}
                 isLoading={isLoading}
@@ -177,8 +191,9 @@ function ContestClientPage() {
                 onSortChange={handleSortChange}
 
                 onRowClick={(contest) => window.open(`/etrx2/contest/${contest.contestId}`)}
-            />
-        </>
+                />
+            </div>
+        </div>
     );
 }
 

@@ -4,7 +4,11 @@
   "filters": {
     "all": "Все",
     "gymOnly": "Только тренировки",
-    "contestsOnly": "Только контесты"
+    "contestsOnly": "Только контесты",
+    "source": "Источник контеста",
+    "allSources": "Все источники",
+    "apply": "Применить",
+    "reset": "Сбросить"
   },
   "tableHeaders": {
     "id": "ID",

@@ -19,7 +19,7 @@ export default function Page() {
 
     return (
         <div className="container mx-auto px-4">
-            <h1 className="text-3xl font-bold text-center mb-5">{t('about:updatesTitle')}</h1>
+            <h1 className="text-3xl font-bold text-center my-5">{t('about:updatesTitle')}</h1>
             <div className={Styles.container}>
                 <table className={Styles.table}>
                 <thead>

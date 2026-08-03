@@ -5,6 +5,25 @@
     "author": "Author",
     "updates": [
       {
+        "date": "3.8.2026",
+        "author": "Александр",
+        "items":[
+          {
+            "type":"Added",
+            "details":[
+              "Added the ability to hide filters",
+              "Getting data from ioi.contest.codeforces.com"
+            ]
+          },
+          {
+            "type":"Reworked/Changed",
+            "details":[
+              "Reworked filters for contests"
+            ]
+          }
+        ]
+      },
+      {
         "date": "6.6.2026",
         "author": "Александр",
         "items":[

@@ -32,9 +32,11 @@ export async function getRanklistRows(args: GetRanklistRowsArgs)
         }); 
 }
 
-export async function updateRanklistRows(contestId: number)
+export async function updateRanklistRows(contestId: number, source: string | null = null)
 {
-    return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Codeforces/RanklistRows/${contestId}?`,
+    const provider = source?.toLowerCase() === 'ioi' ? 'ioiCodeforces' : 'Codeforces';
+
+    return await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/${provider}/RanklistRows/${contestId}?`,
         {
             redirect: 'error',   
             method: 'POST',  
