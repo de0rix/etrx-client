@@ -124,7 +124,9 @@ function ProtocolClientPage() {
                 isLoading={isLoading}
                 error={error}
                 onRowClick={(sub) => {
-                    if (!contest?.gym) {
+                    if (contest?.source?.toLowerCase() === 'ioi') {
+                        window.open(`https://ioi.contest.codeforces.com/group/32KGsXgiKA/contest/${contestId}/problem/${sub.index}`);
+                    } else if (!contest?.gym) {
                         window.open(`https://codeforces.com/problemset/problem/${contestId}/${sub.index}`);
                     } else {
                         window.open(`https://codeforces.com/gym/${contestId}/problem/${sub.index}`)

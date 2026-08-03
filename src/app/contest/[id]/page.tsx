@@ -131,7 +131,13 @@ function ContestIdClientPage() {
         }
     
         const dynamicColumns: Column<RanklistRowForTable>[] = problems.map(problem => {
-            const problemUrl = `https://codeforces.com/contest/${problem.contestId}/problem/${problem.index}`;
+            const problemHost = contest?.source?.toLowerCase() === 'ioi'
+                ? 'ioi.contest.codeforces.com'
+                : 'codeforces.com';
+            const problemPath = contest?.source?.toLowerCase() === 'ioi'
+                ? `/group/32KGsXgiKA/contest/${problem.contestId}/problem/${problem.index}`
+                : `/contest/${problem.contestId}/problem/${problem.index}`;
+            const problemUrl = `https://${problemHost}${problemPath}`;
             return {
                 key: problem.index, 
                 header: (<a href={problemUrl} target="_blank" rel="noopener noreferrer">{problem.index}</a>),
@@ -148,7 +154,7 @@ function ContestIdClientPage() {
         });
     
         return [...staticColumns, ...dynamicColumns];
-    }, [t, problems, participantType]);
+    }, [t, problems, participantType, contest]);
     
     const tableData: RanklistRowForTable[] = ranklistRows.map((row, index) => ({ 
         ...row, 
