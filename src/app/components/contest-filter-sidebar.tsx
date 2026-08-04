@@ -7,27 +7,31 @@ import styles from "./filter-sidebar.module.css";
 interface ContestFilterSidebarProps {
   initialGymFilter: number;
   initialSource: string;
+  initialContestId: string;
   sourceOptions: string[];
-  onApply: (filters: { gymFilter: number; source: string }) => void;
+  onApply: (filters: { gymFilter: number; source: string; contestId: string }) => void;
 }
 
 export default function ContestFilterSidebar({
   initialGymFilter,
   initialSource,
+  initialContestId,
   sourceOptions,
   onApply,
 }: ContestFilterSidebarProps) {
   const { t } = useTranslation(["contest"]);
   const [gymFilter, setGymFilter] = useState(initialGymFilter);
   const [source, setSource] = useState(initialSource);
+  const [contestId, setContestId] = useState(initialContestId);
 
   useEffect(() => {
     setGymFilter(initialGymFilter);
     setSource(initialSource);
-  }, [initialGymFilter, initialSource]);
+    setContestId(initialContestId);
+  }, [initialGymFilter, initialSource, initialContestId]);
 
   const handleReset = () => {
-    onApply({ gymFilter: 2, source: "" });
+    onApply({ gymFilter: 2, source: "", contestId: "" });
   };
 
   const renderOption = (value: string, label: string, selected: boolean, onChange: () => void) => (
@@ -50,6 +54,18 @@ export default function ContestFilterSidebar({
         </div>
 
         <div className={styles.section}>
+          <div className={styles.title}>{t("contest:filters.contestId")}</div>
+          <input
+            type="number"
+            className={styles.inputText}
+            min="1"
+            value={contestId}
+            onChange={(event) => setContestId(event.target.value)}
+            placeholder="ID"
+          />
+        </div>
+
+        <div className={styles.section}>
           <div className={styles.title}>{t("contest:filters.source")}</div>
           <div className={styles.listArea}>
             {renderOption("", t("contest:filters.allSources"), source === "", () => setSource(""))}
@@ -64,7 +80,7 @@ export default function ContestFilterSidebar({
         <button
           type="button"
           className={styles.applyBtn}
-          onClick={() => onApply({ gymFilter, source })}
+          onClick={() => onApply({ gymFilter, source, contestId })}
         >
           {t("contest:filters.apply")}
         </button>

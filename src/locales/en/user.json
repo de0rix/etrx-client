@@ -7,6 +7,13 @@
       "lastName": "Last Name",
       "organization": "Organization",
       "city": "City",
-      "class": "Class"
+      "grade": "Grade"
+    },
+    "actions": {
+      "add": "Add user",
+      "save": "Save",
+      "saving": "Saving...",
+      "delete": "Delete",
+      "clear": "Clear"
     }
   }

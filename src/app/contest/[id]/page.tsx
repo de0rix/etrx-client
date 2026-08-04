@@ -24,21 +24,25 @@ function ContestIdClientPage() {
     const isClient = useIsClient();
     
     const { searchParams, setQueryParams } = useQueryState({
-        participantType: DEFAULT_PARTICIPANT_TYPE,
         sortField: DEFAULT_SORT_FIELD,
         sortOrder: DEFAULT_SORT_ORDER,
     });
 
-    const participantType = useMemo(() => searchParams.get('participantType') || DEFAULT_PARTICIPANT_TYPE, [searchParams]);
-    const sortField = useMemo(() => (searchParams.get('sortField') as keyof RanklistRow) || DEFAULT_SORT_FIELD, [searchParams]);
-    const sortOrder = useMemo(() => (searchParams.get('sortOrder') as SortOrder) || DEFAULT_SORT_ORDER, [searchParams]);
-    
+
     const [contest, setContest] = useState<Contest | null>(null);
     const [ranklistRows, setRanklistRows] = useState<RanklistRow[]>([]);
     const [problems, setProblems] = useState<Problem[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
     const [error, setError] = useState<Error | null>(null);
     const updatePerformed = useRef(false);
+
+    const participantType = useMemo(() => {
+        const selectedParticipantType = searchParams.get('participantType');
+        if (selectedParticipantType) return selectedParticipantType;
+        return contest?.source?.toLowerCase() === 'ioi' ? 'PRACTICE' : DEFAULT_PARTICIPANT_TYPE;
+    }, [searchParams, contest]);
+    const sortField = useMemo(() => (searchParams.get('sortField') as keyof RanklistRow) || DEFAULT_SORT_FIELD, [searchParams]);
+    const sortOrder = useMemo(() => (searchParams.get('sortOrder') as SortOrder) || DEFAULT_SORT_ORDER, [searchParams]);
 
     const { elapsedTime: loadingTime, start: startStopwatch, stop: stopStopwatch, reset: resetStopwatch } = useStopwatch();
 
@@ -175,7 +179,7 @@ function ContestIdClientPage() {
     
     return (
         <>
-            <h1 className='text-3xl w-full text-center font-bold mb-5'>
+            <h1 className='text-3xl w-full text-center font-bold my-5'>
                 {contest ? t('contestId:contestTitle', { contestName: contest.name, contestId: contest.contestId }) : t('common:loading')}
             </h1>
             

@@ -22,7 +22,7 @@ export default function Page() {
         setIsLoading(true);
         setError(null);
 
-        const args = new GetContestsArgs(1, 10, 'startTime', false, null, null, i18n.language);
+        const args = new GetContestsArgs(1, 10, 'startTime', false, null, null, null, i18n.language);
 
         try {
             const response = await getContests(args);

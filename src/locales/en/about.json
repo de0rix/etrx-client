@@ -5,6 +5,26 @@
     "author": "Author",
     "updates": [
       {
+        "date": "4.8.2026",
+        "author": "Александр",
+        "items":[
+          {
+            "type":"Added",
+            "details":[
+              "Added the ability to add and remove users",
+              "Added search by contest ID"
+            ]
+          },
+          {
+            "type":"Reworked/Changed",
+            "details":[
+              "Default sorting for training sessions is by ID in descending order",
+              "For ioi contests, the default participation filter is Practice"
+            ]
+          }
+        ]
+      },
+      {
         "date": "3.8.2026",
         "author": "Александр",
         "items":[

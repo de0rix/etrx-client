@@ -14,17 +14,20 @@ export class GetContestsArgs extends Pageable
         sortOrder: boolean | null = false,
         isGym: boolean | null = null,
         source: string | null = null,
+        contestId: number | null = null,
         lang: string | null = null
     ) 
     {
         super(page, pageSize, sortField, sortOrder);
         this.isGym = isGym;
         this.source = source;
+        this.contestId = contestId;
         this.lang = lang;
     }
 
     isGym: boolean | null;
     source: string | null;
+    contestId: number | null;
     lang: string | null;
 }
 
@@ -37,6 +40,7 @@ export async function getContests(
         `${args.pageSize != null? `&pageSize=${args.pageSize}` : '&pageSize=20'}` + 
         `${args.isGym != null? `&gym=${args.isGym}` : ''}` +
         `${args.source != null? `&source=${encodeURIComponent(args.source)}` : ''}` +
+        `${args.contestId != null? `&ContestId=${args.contestId}` : ''}` +
         `${args.sortField != null? `&sortField=${args.sortField}` : ''}` + 
         `${args.sortOrder != null? `&sortOrder=${args.sortOrder}` : '&sortOrder=false'}` + 
         `${args.lang != null? `&lang=${args.lang}` : '&lang=ru'}`,

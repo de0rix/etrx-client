@@ -5,6 +5,7 @@
     "all": "All",
     "gymOnly": "Gym Only",
     "contestsOnly": "Contests Only",
+    "contestId": "Contest ID",
     "source": "Contest source",
     "allSources": "All sources",
     "apply": "Apply",

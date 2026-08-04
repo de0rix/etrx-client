@@ -27,6 +27,7 @@ function ContestClientPage() {
         sortOrder: DEFAULT_SORT_ORDER,
         gymFilter: DEFAULT_GYM_FILTER,
         source: null,
+        contestId: null,
     });
 
     const page = useMemo(() => Number(searchParams.get('page')) || DEFAULT_PAGE, [searchParams]);
@@ -37,6 +38,7 @@ function ContestClientPage() {
         return param !== null ? Number(param) : DEFAULT_GYM_FILTER;
     }, [searchParams]);
     const source = useMemo(() => searchParams.get('source') || '', [searchParams]);
+    const contestId = useMemo(() => searchParams.get('contestId') || '', [searchParams]);
 
     const [contests, setContests] = useState<Contest[]>([]);
     const [maxPage, setMaxPage] = useState<number>(1);
@@ -54,6 +56,7 @@ function ContestClientPage() {
             sortOrder === 'asc',
             gymFilter == 2 ? null : gymFilter == 1,
             source || null,
+            contestId ? Number(contestId) : null,
             i18n.language
         );
 
@@ -75,7 +78,7 @@ function ContestClientPage() {
             if (!isMounted.current) return;
             setIsLoading(false);
         }
-    }, [page, sortField, sortOrder, gymFilter, source, i18n.language, t]);
+    }, [page, sortField, sortOrder, gymFilter, source, contestId, i18n.language, t]);
 
     useEffect(() => {
         isMounted.current = true;
@@ -149,11 +152,15 @@ function ContestClientPage() {
                 <ContestFilterSidebar
                     initialGymFilter={gymFilter}
                     initialSource={source}
+                    initialContestId={contestId}
                     sourceOptions={sourceOptions}
-                    onApply={({ gymFilter: nextGymFilter, source: nextSource }) => {
+                    onApply={({ gymFilter: nextGymFilter, source: nextSource, contestId: nextContestId }) => {
                         setQueryParams({
                             gymFilter: nextGymFilter,
                             source: nextSource || null,
+                            contestId: nextContestId || null,
+                            sortField: nextGymFilter === 1 ? 'contestId' : DEFAULT_SORT_FIELD,
+                            sortOrder: nextGymFilter === 1 ? 'desc' : DEFAULT_SORT_ORDER,
                             page: 1,
                         });
                     }}
