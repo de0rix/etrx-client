@@ -5,6 +5,18 @@
   "author": "Author",
   "updates": [
     {
+      "date": "6.8.2026",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Added the display of team data. This data is displayed only on the contest page and is not taken into account in the protocol"
+          ]
+        }
+      ]
+    },
+    {
       "date": "4.8.2026",
       "author": "Александр",
       "items": [
