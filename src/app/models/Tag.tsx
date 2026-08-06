@@ -1,6 +1,5 @@
-export interface Tag
-{
-    id: string,
-    name: string,
-    priority: number
+export interface Tag {
+  id: string;
+  name: string;
+  priority: number;
 }

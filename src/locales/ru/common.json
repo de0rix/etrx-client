@@ -1,21 +1,21 @@
 {
-    "loading": "Загрузка...",
-    "loadingTooLong": "Слишком долгая загрузка",
-    "checkConnection": "Проверьте ваше соединение",
-    "error": "Не удалось загрузить данные таблицы. Код статуса: {{statusCode}}",
-    "months": {
-      "january": "Январь",
-      "february": "Февраль",
-      "march": "Март",
-      "april": "Апрель",
-      "may": "Май",
-      "june": "Июнь",
-      "july": "Июль",
-      "august": "Август",
-      "september": "Сентябрь",
-      "october": "Октябрь",
-      "november": "Ноябрь",
-      "december": "Декабрь"
-    },
-    "loadingTime": "Данные загружены за {{seconds}} секунд"
+  "loading": "Загрузка...",
+  "loadingTooLong": "Слишком долгая загрузка",
+  "checkConnection": "Проверьте ваше соединение",
+  "error": "Не удалось загрузить данные таблицы. Код статуса: {{statusCode}}",
+  "months": {
+    "january": "Январь",
+    "february": "Февраль",
+    "march": "Март",
+    "april": "Апрель",
+    "may": "Май",
+    "june": "Июнь",
+    "july": "Июль",
+    "august": "Август",
+    "september": "Сентябрь",
+    "october": "Октябрь",
+    "november": "Ноябрь",
+    "december": "Декабрь"
+  },
+  "loadingTime": "Данные загружены за {{seconds}} секунд"
 }

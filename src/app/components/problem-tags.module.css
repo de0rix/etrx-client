@@ -1,20 +1,18 @@
-.tag
-{
-    background-color: #00000008;
-    border: 1.5px solid gray;
-    border-radius: 1px;
-    text-wrap: nowrap;
-    font-size: 18px;
-    line-height: 16px;
-    height: 26px;
-    padding: 4px;
-    margin: 4px;
-    float: left;
-    border-radius: 10px;   
+.tag {
+  background-color: #00000008;
+  border: 1.5px solid gray;
+  border-radius: 1px;
+  text-wrap: nowrap;
+  font-size: 18px;
+  line-height: 16px;
+  height: 26px;
+  padding: 4px;
+  margin: 4px;
+  float: left;
+  border-radius: 10px;
 }
 
-.tag:hover
-{
-    cursor: pointer;
-    user-select: none;
+.tag:hover {
+  cursor: pointer;
+  user-select: none;
 }

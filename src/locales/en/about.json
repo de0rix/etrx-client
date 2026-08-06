@@ -1,478 +1,447 @@
 {
-    "updatesTitle": "Updates",
-    "version": "Version",
-    "changes": "Changes",
-    "author": "Author",
-    "updates": [
-      {
-        "date": "4.8.2026",
-        "author": "Александр",
-        "items":[
-          {
-            "type":"Added",
-            "details":[
-              "Added the ability to add and remove users",
-              "Added search by contest ID"
-            ]
-          },
-          {
-            "type":"Reworked/Changed",
-            "details":[
-              "Default sorting for training sessions is by ID in descending order",
-              "For ioi contests, the default participation filter is Practice"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "3.8.2026",
-        "author": "Александр",
-        "items":[
-          {
-            "type":"Added",
-            "details":[
-              "Added the ability to hide filters",
-              "Getting data from ioi.contest.codeforces.com"
-            ]
-          },
-          {
-            "type":"Reworked/Changed",
-            "details":[
-              "Reworked filters for contests"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "6.6.2026",
-        "author": "Александр",
-        "items":[
-          {
-            "type":"Fixed",
-            "details":[
-              "Due to changes to the Codeforces API (more details https://codeforces.com/blog/entry/153241), requests to their API have been redesigned",
-              "For regular contests, data is now available only about official participants without parameters, for unauthorized users",
-              "All information with additional parameters is available for gym, but only for authorized users (a token is required)"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "28.2.2026",
-        "author": "Александр",
-        "items":[
-          {
-            "type":"Added",
-            "details":[
-              "Added tag priority and priority setting page",
-              "Added column with author of update"
-            ]
-          },
-          {
-            "type":"Reworked/Changed",
-            "details":[
-              "Protocol system has been reworked"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "10.1.2026",
-        "author": "Александр",
-        "items":[
-          {
-            "type":"Reworked/Changed",
-            "details":[
-              "Filter system on problem page has been redesigned. Dynamic filtering has been implemented"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "19.12.2025",
-        "author": "Даниил",
-        "items": [
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "Changing of language has been reworked"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "15.12.2025",
-        "author": "Артемий",
-        "items":[
-          {
-            "type":"Added",
-            "details":[
-              "Division fields have been added to the filter and task characteristics. The task's division is taken from the contest (if not specified, it is marked with a '-')"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "8.12.2025",
-        "author": "Даниил",
-        "items": [
-          {
-            "type": "Added",
-            "details": [
-              "Sorting by count of solves has been added"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "29.11.2025",
-        "author": "Артемий",
-        "items": [
-          {
-            "type": "Added",
-            "details": [
-              "Ranks have been added to the filter and task characteristics. A task’s rank is determined by its rating:",
-              "Rank1: >2100",
-              "Rank2: 1600-2099",
-              "Rank3: 1400-1599",
-              "Rank4: 0-1399"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "15.11.2025",
-        "author": "Александр",
-        "items":[
-          {
-            "type":"Added",
-            "details":[
-              "Added the Contest date and Solved count fields in the problem table"
-            ]
-          },
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "Sorting on the contest/[id] page by default is now based on the Points field"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "11.11.2025",
-        "author": "Артемий",
-        "items":[
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "The way information is entered into the field has been redesigned. Now the page will only refresh when the user has fully entered a number and pressed Enter or when they are outside the field"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "7.11.2025",
-        "author": "Александр",
-        "items":[
-          {
-            "type":"Added",
-            "details":[
-              "Calculation of the task complexity (adjusted once every half hour when updating data)"
-            ]
-          },
-          {
-            "type": "Fixed",
-            "details": [
-              "Localization for filters by points and rating (previously it was written sorting)"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "5.11.2025",
-        "author": "Александр",
-        "items":[
-          {
-            "type":"Added",
-            "details":[
-              "Detailed protocol of user submissions for a specific contest"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "3.11.2025",
-        "author": "Александр",
-        "items":[
-          {
-            "type":"Added",
-            "details":[
-              "Sorting the protocol table"
-            ]
-          },
-          {
-            "type":"Reworked/Changed",
-            "details":[
-              "Renamed the query parameter for filtering by type of participation (filterByParticipantType -> participantType)"
-            ]
-          },
-          {
-            "type": "Fixed",
-            "details": [
-              "The protocol data was grouped only by user name. Now the data is also divided by contests"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "31.10.2025",
-        "author": "Артемий",
-        "items":[
-          {
-            "type":"Added",
-            "details":[
-              "The isOnly button on the task page filters tasks only by the tags that are selected and no others"
-            ]
-          },
-          {
-            "type":"Reworked/Changed",
-            "details":[
-              "Now only those tags are shown in the tag table that are in tasks with the minimum to maximum rating"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "19.10.2025",
-        "author": "Александр, Артемий",
-        "items": [
-          {
-            "type": "Added",
-            "details": [
-              "Added timer on contest/[id] page, which displays how long it took to get the data"
-            ]
-          },
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "Unified work with URL query parameters throughout the application by refactoring components to use React hooks (useQueryState, useSearchParams) instead of a separate library of utilities",
-              "The build label has been removed from the field where the project version is displayed"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "27.9.2025",
-        "author": "Александр",
-        "items": [
-          {
-            "type": "Added",
-            "details": [
-              "Query parameters on contests, problems, users, and specific contest pages",
-              "A column in the contests table indicating whether information about official contest participants has been loaded"
-            ]
-          },
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "Code refactoring"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "5.5.2025",
-        "author": "Александр",
-        "items": [
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "Now the results of the contestants are uploaded instantly, if they were uploaded before and the contest has already ended"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "26.4.2025",
-        "author": "Александр",
-        "items": [
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "Rework protocol and contest submissions"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "20.4.2025",
-        "author": "Александр",
-        "items": [
-          {
-            "type": "Added",
-            "details": [
-              "Added protocol with time and contest filtering"
-            ]
-          },
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "The data is now updated once every 30 minutes"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "5.4.2025",
-        "author": "Александр",
-        "items": [
-          {
-            "type": "Added",
-            "details": [
-              "Added data localization"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "24.3.2025",
-        "author": "Александр",
-        "items": [
-          {
-            "type": "Added",
-            "details": [
-              "Added full application localization in Russian and English",
-              "Added selected language saving in cookies"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "16.3.2025",
-        "author": "Александр",
-        "items": [
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "Links unification (now they are the same as on etr)"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "9.3.2025",
-        "author": "Александр",
-        "items": [
-          {
-            "type": "Added",
-            "details": [
-              "Added task filtering by rating and points"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "2.3.2025",
-        "author": "Александр",
-        "items": [
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "All filters are now placed horizontally",
-              "Now the contest page displays its name and number"
-            ]
-          },
-          {
-            "type": "Fixed",
-            "details": [
-              "Fixed the issue with users not being displayed due to changed handles"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "11.1.2025",
-        "author": "Александр",
-        "items": [
-          {
-            "type": "Added",
-            "details": [
-              "Index filtering (if multiple indexes are selected, tasks with similar indexes will be displayed)",
-              "Task name search"
-            ]
-          },
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "Application versioning. Now the version and build are displayed at the top right, and versions are now update dates",
-              "Changed this updates table",
-              "Now the date is displayed in the format 'Month dd yyyy'"
-            ]
-          },
-          {
-            "type": "Fixed",
-            "details": [
-              "Task names were in English. Now most tasks have names in Russian"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "5.1.2025",
-        "author": "Александр",
-        "items": [
-          {
-            "type": "Added",
-            "details": [
-              "Task table",
-              "Task filtering by tags",
-              "Filtering by user participation type in attempts"
-            ]
-          },
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "Displayed data in user attempts",
-              "Contest/training filter"
-            ]
-          },
-          {
-            "type": "Fixed",
-            "details": [
-              "Data when displaying all user attempts was incorrect"
-            ]
-          }
-        ]
-      },
-      {
-        "date": "8.12.2024",
-        "author": "Александр",
-        "items": [
-          {
-            "type": "Added",
-            "details": [
-              "About page, i.e., this page"
-            ]
-          },
-          {
-            "type": "Reworked/Changed",
-            "details": [
-              "Display of attempts in the contest table",
-              "Sidebar"
-            ]
-          },
-          {
-            "type": "Fixed",
-            "details": [
-              "The contests table now updates correctly when selecting a filter",
-              "Contest data requests",
-              "User table sorting",
-              "Incorrect style for contest table filter backgrounds",
-              "Display of icons in the side menu",
-              "Size and position of the side menu button"
-            ]
-          }
-        ]
-      }
-    ]
-  }
+  "updatesTitle": "Updates",
+  "version": "Version",
+  "changes": "Changes",
+  "author": "Author",
+  "updates": [
+    {
+      "date": "4.8.2026",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Added the ability to add and remove users",
+            "Added search by contest ID"
+          ]
+        },
+        {
+          "type": "Reworked/Changed",
+          "details": [
+            "Default sorting for training sessions is by ID in descending order",
+            "For ioi contests, the default participation filter is Practice"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "3.8.2026",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Added the ability to hide filters",
+            "Getting data from ioi.contest.codeforces.com"
+          ]
+        },
+        {
+          "type": "Reworked/Changed",
+          "details": ["Reworked filters for contests"]
+        }
+      ]
+    },
+    {
+      "date": "6.6.2026",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Fixed",
+          "details": [
+            "Due to changes to the Codeforces API (more details https://codeforces.com/blog/entry/153241), requests to their API have been redesigned",
+            "For regular contests, data is now available only about official participants without parameters, for unauthorized users",
+            "All information with additional parameters is available for gym, but only for authorized users (a token is required)"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "28.2.2026",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Added tag priority and priority setting page",
+            "Added column with author of update"
+          ]
+        },
+        {
+          "type": "Reworked/Changed",
+          "details": ["Protocol system has been reworked"]
+        }
+      ]
+    },
+    {
+      "date": "10.1.2026",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Reworked/Changed",
+          "details": [
+            "Filter system on problem page has been redesigned. Dynamic filtering has been implemented"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "19.12.2025",
+      "author": "Даниил",
+      "items": [
+        {
+          "type": "Reworked/Changed",
+          "details": ["Changing of language has been reworked"]
+        }
+      ]
+    },
+    {
+      "date": "15.12.2025",
+      "author": "Артемий",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Division fields have been added to the filter and task characteristics. The task's division is taken from the contest (if not specified, it is marked with a '-')"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "8.12.2025",
+      "author": "Даниил",
+      "items": [
+        {
+          "type": "Added",
+          "details": ["Sorting by count of solves has been added"]
+        }
+      ]
+    },
+    {
+      "date": "29.11.2025",
+      "author": "Артемий",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Ranks have been added to the filter and task characteristics. A task’s rank is determined by its rating:",
+            "Rank1: >2100",
+            "Rank2: 1600-2099",
+            "Rank3: 1400-1599",
+            "Rank4: 0-1399"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "15.11.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Added the Contest date and Solved count fields in the problem table"
+          ]
+        },
+        {
+          "type": "Reworked/Changed",
+          "details": [
+            "Sorting on the contest/[id] page by default is now based on the Points field"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "11.11.2025",
+      "author": "Артемий",
+      "items": [
+        {
+          "type": "Reworked/Changed",
+          "details": [
+            "The way information is entered into the field has been redesigned. Now the page will only refresh when the user has fully entered a number and pressed Enter or when they are outside the field"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "7.11.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Calculation of the task complexity (adjusted once every half hour when updating data)"
+          ]
+        },
+        {
+          "type": "Fixed",
+          "details": [
+            "Localization for filters by points and rating (previously it was written sorting)"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "5.11.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Detailed protocol of user submissions for a specific contest"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "3.11.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": ["Sorting the protocol table"]
+        },
+        {
+          "type": "Reworked/Changed",
+          "details": [
+            "Renamed the query parameter for filtering by type of participation (filterByParticipantType -> participantType)"
+          ]
+        },
+        {
+          "type": "Fixed",
+          "details": [
+            "The protocol data was grouped only by user name. Now the data is also divided by contests"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "31.10.2025",
+      "author": "Артемий",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "The isOnly button on the task page filters tasks only by the tags that are selected and no others"
+          ]
+        },
+        {
+          "type": "Reworked/Changed",
+          "details": [
+            "Now only those tags are shown in the tag table that are in tasks with the minimum to maximum rating"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "19.10.2025",
+      "author": "Александр, Артемий",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Added timer on contest/[id] page, which displays how long it took to get the data"
+          ]
+        },
+        {
+          "type": "Reworked/Changed",
+          "details": [
+            "Unified work with URL query parameters throughout the application by refactoring components to use React hooks (useQueryState, useSearchParams) instead of a separate library of utilities",
+            "The build label has been removed from the field where the project version is displayed"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "27.9.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Query parameters on contests, problems, users, and specific contest pages",
+            "A column in the contests table indicating whether information about official contest participants has been loaded"
+          ]
+        },
+        {
+          "type": "Reworked/Changed",
+          "details": ["Code refactoring"]
+        }
+      ]
+    },
+    {
+      "date": "5.5.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Reworked/Changed",
+          "details": [
+            "Now the results of the contestants are uploaded instantly, if they were uploaded before and the contest has already ended"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "26.4.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Reworked/Changed",
+          "details": ["Rework protocol and contest submissions"]
+        }
+      ]
+    },
+    {
+      "date": "20.4.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": ["Added protocol with time and contest filtering"]
+        },
+        {
+          "type": "Reworked/Changed",
+          "details": ["The data is now updated once every 30 minutes"]
+        }
+      ]
+    },
+    {
+      "date": "5.4.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": ["Added data localization"]
+        }
+      ]
+    },
+    {
+      "date": "24.3.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Added full application localization in Russian and English",
+            "Added selected language saving in cookies"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "16.3.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Reworked/Changed",
+          "details": ["Links unification (now they are the same as on etr)"]
+        }
+      ]
+    },
+    {
+      "date": "9.3.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": ["Added task filtering by rating and points"]
+        }
+      ]
+    },
+    {
+      "date": "2.3.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Reworked/Changed",
+          "details": [
+            "All filters are now placed horizontally",
+            "Now the contest page displays its name and number"
+          ]
+        },
+        {
+          "type": "Fixed",
+          "details": [
+            "Fixed the issue with users not being displayed due to changed handles"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "11.1.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Index filtering (if multiple indexes are selected, tasks with similar indexes will be displayed)",
+            "Task name search"
+          ]
+        },
+        {
+          "type": "Reworked/Changed",
+          "details": [
+            "Application versioning. Now the version and build are displayed at the top right, and versions are now update dates",
+            "Changed this updates table",
+            "Now the date is displayed in the format 'Month dd yyyy'"
+          ]
+        },
+        {
+          "type": "Fixed",
+          "details": [
+            "Task names were in English. Now most tasks have names in Russian"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "5.1.2025",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": [
+            "Task table",
+            "Task filtering by tags",
+            "Filtering by user participation type in attempts"
+          ]
+        },
+        {
+          "type": "Reworked/Changed",
+          "details": [
+            "Displayed data in user attempts",
+            "Contest/training filter"
+          ]
+        },
+        {
+          "type": "Fixed",
+          "details": ["Data when displaying all user attempts was incorrect"]
+        }
+      ]
+    },
+    {
+      "date": "8.12.2024",
+      "author": "Александр",
+      "items": [
+        {
+          "type": "Added",
+          "details": ["About page, i.e., this page"]
+        },
+        {
+          "type": "Reworked/Changed",
+          "details": ["Display of attempts in the contest table", "Sidebar"]
+        },
+        {
+          "type": "Fixed",
+          "details": [
+            "The contests table now updates correctly when selecting a filter",
+            "Contest data requests",
+            "User table sorting",
+            "Incorrect style for contest table filter backgrounds",
+            "Display of icons in the side menu",
+            "Size and position of the side menu button"
+          ]
+        }
+      ]
+    }
+  ]
+}

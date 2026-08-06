@@ -1,19 +1,19 @@
 {
-    "usersTableTitle": "Users Table",
-    "tableHeaders": {
-      "id": "ID",
-      "handle": "Handle",
-      "firstName": "First Name",
-      "lastName": "Last Name",
-      "organization": "Organization",
-      "city": "City",
-      "grade": "Grade"
-    },
-    "actions": {
-      "add": "Add user",
-      "save": "Save",
-      "saving": "Saving...",
-      "delete": "Delete",
-      "clear": "Clear"
-    }
+  "usersTableTitle": "Users Table",
+  "tableHeaders": {
+    "id": "ID",
+    "handle": "Handle",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "organization": "Organization",
+    "city": "City",
+    "grade": "Grade"
+  },
+  "actions": {
+    "add": "Add user",
+    "save": "Save",
+    "saving": "Saving...",
+    "delete": "Delete",
+    "clear": "Clear"
   }
+}

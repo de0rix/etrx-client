@@ -1,31 +1,31 @@
 /* styles.css */
 .datetime-input {
-    width: 200px;
-    border: 1.5px solid var(--border-color);
-    border-radius: 6px;
-    padding: 2px 5px;
-    background-color: var(--background);
-    color: var(--text-color);
-    transition: all 0.3s ease;
-  }
-  
-  .datetime-input::-webkit-calendar-picker-indicator {
-    filter: invert(var(--icon-invert)) brightness(var(--icon-brightness));
-    cursor: pointer;
-  }
-  
-  body.dark-mode {
-    --background: #1e1e1e;
-    --text-color: #ffffff;
-    --border-color: #444444;
-    --icon-invert: 1;
-    --icon-brightness: 1.5;
-  }
-  
-  body.light-mode {
-    --background: #ffffff;
-    --text-color: #000000;
-    --border-color: #cccccc;
-    --icon-invert: 0;
-    --icon-brightness: 1;
-  }
+  width: 200px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 6px;
+  padding: 2px 5px;
+  background-color: var(--background);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.datetime-input::-webkit-calendar-picker-indicator {
+  filter: invert(var(--icon-invert)) brightness(var(--icon-brightness));
+  cursor: pointer;
+}
+
+body.dark-mode {
+  --background: #1e1e1e;
+  --text-color: #ffffff;
+  --border-color: #444444;
+  --icon-invert: 1;
+  --icon-brightness: 1.5;
+}
+
+body.light-mode {
+  --background: #ffffff;
+  --text-color: #000000;
+  --border-color: #cccccc;
+  --icon-invert: 0;
+  --icon-brightness: 1;
+}

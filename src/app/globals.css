@@ -17,9 +17,9 @@
   --main-black: #202020;
   --main-black-shade: #333333;
   /* Main page colors */
-  --main-red: #B54147;
-  --main-yellow: #CD962D;
-  --main-beige: #F7F2DC;
+  --main-red: #b54147;
+  --main-yellow: #cd962d;
+  --main-beige: #f7f2dc;
   --main: hsl(215, 59%, 36%);
   --main-dark: hsl(215, 59%, 21%);
   --main-darker: hsl(215, 59%, 31%);
@@ -35,7 +35,7 @@
     --foreground-shade: #dbdbdb;
     --widget: #303030;
     --widget-hidden: #212121;
-    
+
     --main-white: #ededed;
     --main-white-shade: #dbdbdb;
     --main-black: #181818;
@@ -53,11 +53,15 @@ body {
   position: relative;
   width: 310px;
   flex: 0 0 310px;
-  transition: width 0.35s ease, flex-basis 0.35s ease;
+  transition:
+    width 0.35s ease,
+    flex-basis 0.35s ease;
 }
 
 .filterSidebarShell > aside {
-  transition: transform 0.35s ease, opacity 0.25s ease;
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease;
 }
 
 .filterSidebarShellCollapsed {
@@ -90,7 +94,10 @@ body {
   line-height: 1;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-  transition: right 0.35s ease, background-color 0.2s ease, color 0.2s ease;
+  transition:
+    right 0.35s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .filterSidebarToggle:hover {

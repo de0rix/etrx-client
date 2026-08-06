@@ -1,19 +1,19 @@
 {
-    "usersTableTitle": "Таблица пользователей",
-    "tableHeaders": {
-      "id": "ID",
-      "handle": "Хендл",
-      "firstName": "Имя",
-      "lastName": "Фамилия",
-      "organization": "Организация",
-      "city": "Город",
-      "grade": "Класс"
-    },
-    "actions": {
-      "add": "Добавить пользователя",
-      "save": "Сохранить",
-      "saving": "Сохранение...",
-      "delete": "Удалить",
-      "clear": "Очистить"
-    }
+  "usersTableTitle": "Таблица пользователей",
+  "tableHeaders": {
+    "id": "ID",
+    "handle": "Хендл",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "organization": "Организация",
+    "city": "Город",
+    "grade": "Класс"
+  },
+  "actions": {
+    "add": "Добавить пользователя",
+    "save": "Сохранить",
+    "saving": "Сохранение...",
+    "delete": "Удалить",
+    "clear": "Очистить"
   }
+}

@@ -1,88 +1,78 @@
-.pad, .silent_pad
-{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+.pad,
+.silent_pad {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 
-    width: 100%;
-    height: max-content;
-    margin: 20px 0px;
+  width: 100%;
+  height: max-content;
+  margin: 20px 0px;
 }
 
-.silent_pad
-{
-    display: none;
+.silent_pad {
+  display: none;
 }
 
-.button
-{
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    border: 1.5px solid var(--foreground);
-    color: var(--foreground);
-    margin: 0px 5px;
-    font-size: large;
+.button {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: 1.5px solid var(--foreground);
+  color: var(--foreground);
+  margin: 0px 5px;
+  font-size: large;
 }
 
-.placeholder, .cont_placeholder
-{
-    border-radius: 100%;
-    border: 1.5px solid #80808040;
-    margin: 0px 5px;
+.placeholder,
+.cont_placeholder {
+  border-radius: 100%;
+  border: 1.5px solid #80808040;
+  margin: 0px 5px;
 }
 
 @media (max-width: 600px) {
-    .button, .placeholder
-    {
-        width: 60px;
-        height: 60px;
-        margin: 0px 2px;
-    }
-    .pad .cont_placeholder, 
-    .pad .prev_button, 
-    .pad .next_button, 
-    .pad .first_button, 
-    .pad .last_button
-    {
-        display: none;
-    }
-    .silent_pad .button,
-    .silent_pad .placeholder,
-    .silent_pad .cont_placeholder
-    {
-        width: 50px;
-        height: 50px;
-    }
-    .pad
-    {
-        margin-bottom: 0px;
-    }
-    .silent_pad
-    {
-        display: flex;
-    }
+  .button,
+  .placeholder {
+    width: 60px;
+    height: 60px;
+    margin: 0px 2px;
+  }
+  .pad .cont_placeholder,
+  .pad .prev_button,
+  .pad .next_button,
+  .pad .first_button,
+  .pad .last_button {
+    display: none;
+  }
+  .silent_pad .button,
+  .silent_pad .placeholder,
+  .silent_pad .cont_placeholder {
+    width: 50px;
+    height: 50px;
+  }
+  .pad {
+    margin-bottom: 0px;
+  }
+  .silent_pad {
+    display: flex;
+  }
 }
 
-.prev_button::after
-{
-    /* TODO: Use icons and not symbols */
-    content: '<';
+.prev_button::after {
+  /* TODO: Use icons and not symbols */
+  content: '<';
 }
 
-.next_button::after
-{
-    content: '>';
+.next_button::after {
+  content: '>';
 }
 
-.first_button::after
-{
-    content: '<<'
+.first_button::after {
+  content: '<<';
 }
 
-.last_button::after
-{
-    content: '>>'
+.last_button::after {
+  content: '>>';
 }

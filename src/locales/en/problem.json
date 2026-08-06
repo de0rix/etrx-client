@@ -1,35 +1,35 @@
 {
-    "problemsTableTitle": "Problems Table",
-    "tableHeaders": {
-      "id": "ID",
-      "contest": "Contest",
-      "index": "Index",
-      "rank": "Rank",
-      "division": "Division",
-      "name": "Name",
-      "points": "Points",
-      "rating": "Rating",
-      "tags": "Tags",
-      "difficulty": "Difficulty",
-      "solvedCount": "Solved count",
-      "startTime": "Contest date"
-    },
-    "filters": {
-      "tags": "Tags",
-      "indexes": "Indexes",
-      "ranks": "Ranks",
-      "divisions": "Divisions",
-      "rating": "Rating",
-      "points": "Points",
-      "difficulty": "Difficulty",
-      "solvedCount": "Solved count",
-      "problemSearch": "Problem search",
-      "problemName": "Problem name",
-      "from": "From",
-      "to": "To",
-      "apply": "Apply",
-      "reset": "Reset",
-      "only": "Only",
-      "any": "Any"
-    }
+  "problemsTableTitle": "Problems Table",
+  "tableHeaders": {
+    "id": "ID",
+    "contest": "Contest",
+    "index": "Index",
+    "rank": "Rank",
+    "division": "Division",
+    "name": "Name",
+    "points": "Points",
+    "rating": "Rating",
+    "tags": "Tags",
+    "difficulty": "Difficulty",
+    "solvedCount": "Solved count",
+    "startTime": "Contest date"
+  },
+  "filters": {
+    "tags": "Tags",
+    "indexes": "Indexes",
+    "ranks": "Ranks",
+    "divisions": "Divisions",
+    "rating": "Rating",
+    "points": "Points",
+    "difficulty": "Difficulty",
+    "solvedCount": "Solved count",
+    "problemSearch": "Problem search",
+    "problemName": "Problem name",
+    "from": "From",
+    "to": "To",
+    "apply": "Apply",
+    "reset": "Reset",
+    "only": "Only",
+    "any": "Any"
   }
+}

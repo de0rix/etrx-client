@@ -1,28 +1,28 @@
 {
-    "protocolTableTitle": "Protocol",
-    "tableHeaders": {
-      "id": "ID",
-      "creationTimeSeconds": "Sending time",
-      "firstName": "First name",
-      "lastName": "Last name",
-      "contestId": "Contest ID",
-      "index": "Problem Index",
-      "participantType": "Participant type",
-      "programmingLanguage": "Programming language",
-      "verdict": "Verdict",
-      "timeConsumedMillis": "Time",
-      "memoryConsumedBytes": "Memory",
-      "userName": "User Name",
-      "solvedCount": "Total Solved",
-      "lastTime": "Last submission",
-      "contestsCount": "Count of contests",
-      "time": "Submission time"
-    },
-    "filtersTitle": "Filters",
-    "selectDate": "Select date",
-    "filters": {
-      "fromDate": "From: ",
-      "toDate": "To: ",
-      "setContestId": "Contest Id: "
-    }
+  "protocolTableTitle": "Protocol",
+  "tableHeaders": {
+    "id": "ID",
+    "creationTimeSeconds": "Sending time",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "contestId": "Contest ID",
+    "index": "Problem Index",
+    "participantType": "Participant type",
+    "programmingLanguage": "Programming language",
+    "verdict": "Verdict",
+    "timeConsumedMillis": "Time",
+    "memoryConsumedBytes": "Memory",
+    "userName": "User Name",
+    "solvedCount": "Total Solved",
+    "lastTime": "Last submission",
+    "contestsCount": "Count of contests",
+    "time": "Submission time"
+  },
+  "filtersTitle": "Filters",
+  "selectDate": "Select date",
+  "filters": {
+    "fromDate": "From: ",
+    "toDate": "To: ",
+    "setContestId": "Contest Id: "
+  }
 }

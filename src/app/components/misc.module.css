@@ -1,16 +1,14 @@
-.add_ico
-{
-    display: inline-block;
-    background: var(--main);
-    color: var(--main-white);
-    border-radius: 100%;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    margin: 0px 2px;
+.add_ico {
+  display: inline-block;
+  background: var(--main);
+  color: var(--main-white);
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  margin: 0px 2px;
 }
 
-.add_ico::after
-{
-    content: '+';
+.add_ico::after {
+  content: '+';
 }

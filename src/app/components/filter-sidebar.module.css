@@ -5,7 +5,7 @@
   color: var(--foreground);
   flex-shrink: 0;
   box-sizing: border-box;
-  position: relative; 
+  position: relative;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -53,17 +53,23 @@
 .active {
   background: var(--main);
   color: var(--main-white);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.tagGrid, .indexGrid, .listArea {
+.tagGrid,
+.indexGrid,
+.listArea {
   display: grid;
   gap: 4px;
   width: 100%;
 }
 
-.tagGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.indexGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.tagGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.indexGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
 
 .gridItem {
   display: block;
@@ -71,7 +77,9 @@
   width: 100%;
 }
 
-.gridItem input { display: none; }
+.gridItem input {
+  display: none;
+}
 
 .gridItem span {
   display: block;
@@ -102,7 +110,8 @@
   filter: grayscale(0.8);
 }
 
-.disabled span, .disabled .box {
+.disabled span,
+.disabled .box {
   cursor: not-allowed;
 }
 
@@ -115,8 +124,12 @@
   transition: color 0.2s ease;
 }
 
-.checkboxItem:hover .label { color: var(--main); }
-.checkboxItem input { display: none; }
+.checkboxItem:hover .label {
+  color: var(--main);
+}
+.checkboxItem input {
+  display: none;
+}
 
 .box {
   width: 18px;
@@ -136,10 +149,12 @@
 }
 
 .checkboxItem input:checked + .box::after {
-  content: "";
+  content: '';
   position: absolute;
-  left: 6px; top: 2px;
-  width: 4px; height: 8px;
+  left: 6px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
   border: solid var(--main-white);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
@@ -150,7 +165,8 @@
   gap: 8px;
 }
 
-.inputText, .inputRange {
+.inputText,
+.inputRange {
   width: 100%;
   padding: 8px 10px;
   border: 1px solid var(--background-shade1);
@@ -186,7 +202,9 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.05), 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow:
+    0 -4px 10px rgba(0, 0, 0, 0.05),
+    0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .applyBtn:hover {

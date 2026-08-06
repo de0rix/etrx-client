@@ -1,88 +1,75 @@
-import Styles from "./page-selector.module.css"
+import Styles from './page-selector.module.css';
 
 type Props = {
-    page: number,
-    maxPage: number,
-    pageCallback: (page: number) => void,
-}
+  page: number;
+  maxPage: number;
+  pageCallback: (page: number) => void;
+};
 
-export default function PageSelector({page, maxPage, pageCallback}: Props)
-{
-    const maxPageHop = 2; 
-
-    function PrevPageButton()
-    {
-        if(page === 1)
-            return <div className={`${Styles.cont_placeholder} ${Styles.button}`}></div>
-
-        return <button name='Previous page' onClick={() => pageCallback(page - 1) } className={`${Styles.prev_button} ${Styles.button}`}></button>
-    }
-
-    function NextPageButton()
-    {
-        if(page === maxPage)
-            return <div className={`${Styles.cont_placeholder} ${Styles.button}`}></div>
-
-        return <button name='Next page' onClick={() => pageCallback(page + 1) } className={`${Styles.next_button} ${Styles.button}`}></button>
-    }
-
-    function FirstPageButton()
-    {
-        if(page === 1)
-            return  <div className={`${Styles.cont_placeholder} ${Styles.button}`}></div>
-
-        return <button name='First page' onClick={() => pageCallback(1) } className={`${Styles.first_button} ${Styles.button}`}></button>
-    }
-
-    function LastPageButton()
-    {
-        if(page === maxPage)
-            return  <div className={`${Styles.cont_placeholder} ${Styles.button}`}></div>
-
-        return <button name='Last page' onClick={() => pageCallback(maxPage) } className={`${Styles.last_button} ${Styles.button}`}></button>
-    }
-
-    function PageButton({page}: {page: number})
-    {
-        return <button name={`Page ${page}`} key={page} onClick={() => pageCallback(page) } className={`${Styles.button}`}>{page}</button>
-    }
-
-    function PageButtons()
-    {
-        const buttons: (JSX.Element)[] = [];
-        // Fill placeholders in front
-        for(let it = 1; it <= maxPageHop - page + 1; it++)
-        {
-            buttons.push(<div key={1 - it} className={`${Styles.placeholder} ${Styles.button}`}></div>);
-        }
-        // Fill page buttons
-        for(let it = Math.max(1, page - maxPageHop); it <= Math.min(maxPage, page + maxPageHop); it++)
-        {
-            buttons.push(<PageButton key={it} page={it}/>);
-        }
-        // Fill placeholders in back
-        for(let it = 1; it <= maxPageHop - maxPage + page; it++)
-        {
-            buttons.push(<div key={maxPage + it} className={`${Styles.placeholder} ${Styles.button}`}></div>);
-        }
-        return buttons;
-    }
-
-    return(
-        <>
-            <div className={Styles.pad}>
-                <FirstPageButton/>
-                <PrevPageButton/>
-                <PageButtons/>
-                <NextPageButton/>
-                <LastPageButton/>
-            </div>
-            <div className={Styles.silent_pad}>
-                <FirstPageButton/>
-                <PrevPageButton/>
-                <NextPageButton/>
-                <LastPageButton/>
-            </div>
-        </>
+export default function PageSelector({ page, maxPage, pageCallback }: Props) {
+  const maxPageHop = 2;
+  const button = (
+    targetPage: number,
+    name: string,
+    className: string,
+    disabled: boolean,
+  ) =>
+    disabled ? (
+      <div className={`${Styles.cont_placeholder} ${Styles.button}`}></div>
+    ) : (
+      <button
+        name={name}
+        onClick={() => pageCallback(targetPage)}
+        className={`${className} ${Styles.button}`}
+      ></button>
     );
+
+  const pageButtons = [];
+  for (let it = 1; it <= maxPageHop - page + 1; it++)
+    pageButtons.push(
+      <div
+        key={`front-${it}`}
+        className={`${Styles.placeholder} ${Styles.button}`}
+      ></div>,
+    );
+  for (
+    let it = Math.max(1, page - maxPageHop);
+    it <= Math.min(maxPage, page + maxPageHop);
+    it++
+  )
+    pageButtons.push(
+      <button
+        name={`Page ${it}`}
+        key={it}
+        onClick={() => pageCallback(it)}
+        className={Styles.button}
+      >
+        {it}
+      </button>,
+    );
+  for (let it = 1; it <= maxPageHop - maxPage + page; it++)
+    pageButtons.push(
+      <div
+        key={`back-${it}`}
+        className={`${Styles.placeholder} ${Styles.button}`}
+      ></div>,
+    );
+
+  return (
+    <>
+      <div className={Styles.pad}>
+        {button(1, 'First page', Styles.first_button, page === 1)}
+        {button(page - 1, 'Previous page', Styles.prev_button, page === 1)}
+        {pageButtons}
+        {button(page + 1, 'Next page', Styles.next_button, page === maxPage)}
+        {button(maxPage, 'Last page', Styles.last_button, page === maxPage)}
+      </div>
+      <div className={Styles.silent_pad}>
+        {button(1, 'First page', Styles.first_button, page === 1)}
+        {button(page - 1, 'Previous page', Styles.prev_button, page === 1)}
+        {button(page + 1, 'Next page', Styles.next_button, page === maxPage)}
+        {button(maxPage, 'Last page', Styles.last_button, page === maxPage)}
+      </div>
+    </>
+  );
 }

@@ -1,24 +1,24 @@
 .widget[open] .summary {
-    border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
 }
 
 .widget {
-    margin: 2.5px 0;
+  margin: 2.5px 0;
 }
 
 .summary {
-    border-radius: 6px;
-    cursor: pointer;
-    padding: 5px 0 5px 10px;
-    font-size: 18px;
-    background-color: var(--widget);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 5px 0 5px 10px;
+  font-size: 18px;
+  background-color: var(--widget);
 }
 
 .open {
-    padding: 5px 10px;
-    font-size: 18px;
-    background-color: var(--background-shade);
-    height: fit-content;
-    display: flex;
-    border-radius: 0 0 6px 6px;
+  padding: 5px 10px;
+  font-size: 18px;
+  background-color: var(--background-shade);
+  height: fit-content;
+  display: flex;
+  border-radius: 0 0 6px 6px;
 }

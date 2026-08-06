@@ -1,11 +1,10 @@
-'use client'
-import { useEffect, useState } from 'react'
-import Styles from './gizmo-spinner.module.css'
+'use client';
+import { useEffect, useState } from 'react';
+import Styles from './gizmo-spinner.module.css';
 import { useTranslation } from 'react-i18next';
 import '../../i18n/client';
 
-export default function GizmoSpinner() 
-{   
+export default function GizmoSpinner() {
   const { t } = useTranslation();
   const [loadingMsg, setLoadingMsg] = useState(<>{t('common:loading')}</>);
   const [isClient, setIsClient] = useState(false);
@@ -19,7 +18,7 @@ export default function GizmoSpinner()
           {t('common:loadingTooLong')}
           <br />
           {t('common:checkConnection')}
-        </>
+        </>,
       );
     }, 15000);
 
